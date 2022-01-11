@@ -49,7 +49,7 @@ int main(void)
 //int main(void)
 //{
 //	char ch;
-//	// (char*) (p); 인가? (char) (*p) 인가? -> 정답은 : 후자이다 (char) (*p) ? 확실한가?
+//	// (char*) (p); 인가? (char) (*p) 인가? -> 툴 마다 다름!
 //	// char *p // char* p // char * p 툴에 따라 다른데 비쥬얼 스튜디오는 char* p 인 거 같다. 
 //
 //
