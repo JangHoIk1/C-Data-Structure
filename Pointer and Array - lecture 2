@@ -1,0 +1,62 @@
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+
+//struct LinkedListNodeType{ // 1. 이 것만 선언해서 사용할 수 없음
+//	int data;
+//	int* pData;
+//};
+//// 2. struct LinkedListNodeType 변수 로 선언을 해줘야
+//// 3. 변수.data 이렇게 사용할 수 있음
+//struct LinkedListNodeType {
+//	int data;
+//	struct LinkedListNodeType *pLink;
+//};
+
+
+
+
+// 변수 초기화 방법 struct LinkedListNodeType LinkedListNode; -> 귀찮다
+//
+//typedef struct LinkedListNodeType {
+//		int data; # 구조체 LinkedListNodeType 의 멤버변수 int data
+//		struct LinkedListNodeType* pLink; 밑에도 LinkedListNodeType의 멤버변수 struct LinkedListNodeType* pLink
+//}LinkedListNode; // 이런식으로 해주면 된다.
+
+// 연결 리스트는 처음에 기준 값을 잡아주어야 한다.
+// 기준점이 되는 노드를 만들어 준다.
+
+// 더미 노드(헤더 노드) : 데이터(자료)를 가지고 있지 않은 노드 -> 노드를 연결해주기 위한 기준점을 잡아줌  // 더미 노드는 실제 노드의 들어가지 않는다 그저 연결하는 스탠다드 역할만 함
+// 자료 구조는 더미노드(즉 기준점)을 잡아줘야 한다.
+
+typedef struct LinkedListNodeType {
+	int data;
+	struct LinkedListNodeType* pLink;
+}LinkedListNode;
+
+
+
+// #헤더 노드는 노드를 연결하는 기준이 되는 것 / 헤더 노드가 가지는 것 -> 1. 노드 개수/ 만약 개수가 3이면 헤더 노드를 기준으로 3칸 띄워져있음 즉 3개를 가지고 있음
+// 헤더 노드(더미 노드) 만들어 보기
+
+// 헤더 노드(그림을 잘 생각 해보자)
+typedef struct LinkedListType {
+	int currentCount;
+	LinkedListNode headerNode; // LinkedListNode 즉  LinkedListNodeType {
+							   // int data;
+							   // struct LinkedListNodeType* pLink; } 자료형을 가지고 있다
+}LinkedList;
+
+// 항상 메모리 생성(확보)을 해야 데이터가 들어감
+
+
+// 1월 18일날 설명 진행
+LinkedList createLinkedList{
+	// int *p = (int *)malloc(sizeof(int)) 이런 형태임
+	LinkedList * pReturn = (LinkedList*)malloc(sizeof(LinkedList)); // malloc 은 동적 메모리 할당 -> 메모리 크기 잡아 주는 것 (여기서는 LinkedList의 메모리)
+	memset(pReturn, 0, sizeof(LinkedList));
+	return pReturn;
+}
+
+
+
