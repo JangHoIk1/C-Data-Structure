@@ -76,9 +76,9 @@ int main(void)
 	newNode->next = NULL;
 
 
-	if (head == NULL)
+	if (head == NULL) // 헤더가 다음노드와 연결이 되지 않으면!
 		head = newNode;
-	else
+	else // 마지막 노드 이면  tail은 newNode 가 생기나 이게 마지막은 연결되지 않은 형태로 되어있음
 		tail->next = newNode;
 
 	tail = newNode;
