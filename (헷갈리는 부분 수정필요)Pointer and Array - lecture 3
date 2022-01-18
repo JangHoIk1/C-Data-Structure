@@ -1,0 +1,112 @@
+#include<stdio.h>
+#include<stdlib.h>
+//
+//struct list {
+//	int num;
+//	struct list* next;
+//};
+//
+//
+//int main(void)
+//{
+//	struct list a = { 10,0 }, b = { 20,0 }, c = { 30,0 };
+//
+//	struct list* head = &a, * current; // 이부분 헷갈림 current가 머임?
+//
+//
+//	a.next = &b;
+//	b.next = &c;
+//
+//
+//	printf("head->num : %d\n", head->num);
+//	printf("head->next->num : %d\n", head->next->num);
+//
+//	printf("list all : ");
+//	current = head; // 이부분 헷갈림 
+//
+//
+//	while (current != NULL) 
+//	{
+//		printf("%d ", current->num);
+//		current = current->next;
+//	}
+//
+//	printf("\n");
+//
+//	return 0;
+//}
+
+
+
+typedef struct list { // struct list list1;
+	int data;
+	struct list* next;
+	
+}list1; // 구조체 변수 list1 선언
+
+int main(void)
+{
+	list1* head = NULL;
+	list1* tail = NULL;
+	list1* current = NULL;
+
+	list1* newNode = NULL; // 초기화 선언 (포인터 변수) 
+
+	// 포인터는 주소를 안 가지고 있으면 초기화를 시켜줄 때 무조건 "NULL" 로 해주어야 한다.
+
+	int readData;
+
+	// 데이터 입력
+	while (1)
+	{
+		printf("정수를 입력 : ");
+		scanf_s("%d", &readData);
+		if (readData < 1)
+		{
+			break;
+		}
+	
+	// 데이터 입력 후 노드를 추가(연결)
+	// 몇개의 노드가 들어 오는지 모르니깐 메모리 크기를 잡아줘야함 -> 어떤 변수의 메모리 크기를 잡아줘야하느냐 ? -> list1 / 이유 : list1의 데이터가 들어오기때문에
+	// list1의 구조체 변수의 사이즈를 구할 거니깐 
+
+	newNode = (list1*)malloc(sizeof(list1)); // 동적 메모리 할당이니 몇바이트인지 메모리 크기를 잡아주는 거임
+	// int a -> 4바이트 , list list1은 ? 몇바이트인지 모름! 모르니깐 몇바이트인지 메모리 크기를 잡아주는 것!
+	newNode->data = readData; // newNode는 data랑 연결되는데 readData란 값을 가지고 있다? 이런 뜻인듯
+	newNode->next = NULL;
+
+
+	if (head == NULL)
+		head = newNode;
+	else
+		tail->next = newNode;
+
+	tail = newNode;
+	}
+		
+	printf("\n");
+
+
+	printf("입력 받은 Data 출력 ");
+	
+	if (head == NULL)
+	{
+		printf("저장된 Data가 없습니다.\n");
+	}
+	else
+	{
+		current = head;
+		printf("%d ", current->data); // // 첫 번 째 데이터 출력
+
+
+		while (current->next != NULL)
+		{
+			current = current->next;
+			printf("%d ", current->data);
+		}
+	}
+
+	printf("\n");
+
+	return 0;
+}
