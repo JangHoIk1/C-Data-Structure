@@ -59,7 +59,7 @@ int getLinkedListData(LinkedList *pList, int position) {
 		pCurrentNode = pCurrentNode->pLink; // 데이터가 추가 됐다는 것 						currentNode가 currentNode를 가리킴
 	}
 	current pCurrentNode -> data;
-
+	# 이 부분을 보면 position의 값이 없어서 제대로 돌아가지 않음. position 값은 어디에도 없음
 }
 
 
@@ -69,17 +69,4 @@ int getLinkedListData(LinkedList *pList, int position) {
 
 (단순) 연결 리스트
 값 가져오기
-
-
-
-
-
-
-
-
-
-
-
-
-
 
