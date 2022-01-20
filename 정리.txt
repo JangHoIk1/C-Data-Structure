@@ -1,0 +1,85 @@
+arrayList
+LinkedList(pointer)
+
+자료 구조 : 구조체로 정의 되어진다. < 확실하게 기억하기
+
+typedef struct list{
+	int data;
+	struct list * next;
+}list1;
+
+
+int main(void)
+{
+	list1 * head =NULL;
+	list1 * tail =NULL;
+	list1 * current =NULL;
+	list1 * newNode =NULL;
+
+
+
+}
+
+-> 간접접근
+. 직접접근
+
+
+
+
+
+헤더 노드부분을 조금 수정해보자
+
+
+ // 노드의 구조
+typedef struct LinkedListNodeType{
+	int data;
+	struct LinkedListNodeType * pLink;
+}LinkedListNode;
+
+typedef struct LinkedListType {
+	int currentCount;
+	LinkedListNode headerNode;
+}LinkedList;
+
+// 리스트를 생성하는 소스
+LinkedList *createLinkedList() { // 노드가 생성 될때마다 메모리가 추가됨
+	LinkedList *pReturn = (LinkedList *)malloc(sizeof(LinkedList *));
+	memset(pReturn, 0, sizeof(LinkedList)); // 할당된 메모리를 0으로 초기화  
+// memset은 세개의 인자를 가짐 
+	return pReturn;
+
+
+int getLinkedListData(LinkedList *pList, int position) {
+	int i = 0;
+	LinkedListNode *pCurrentNode = &(pList->headerNode); // 헤더노드의 주소를 가져옴 
+	// 즉 pCurrentNode가 headerNode가 된다. 기준점이 headerNode인데 headerNode의 
+	// 주소를 pCurrentNode에 넘겨준다.
+	for(i=0; i<= position; i++)
+	{
+		pCurrentNode = pCurrentNode->pLink; // 데이터가 추가 됐다는 것 						currentNode가 currentNode를 가리킴
+	}
+	current pCurrentNode -> data;
+
+}
+
+
+
+링크리스트 = 연결 리스트
+단순 연결 리스트 라고도 부름
+
+(단순) 연결 리스트
+값 가져오기
+
+
+
+
+
+
+
+
+
+
+
+
+
+
