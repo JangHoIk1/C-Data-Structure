@@ -1,0 +1,47 @@
+typedef struct LinkedListType {
+	int currentCount; // 구조체 LinkedListType 의 멤버변수 (현재 노드 개수)
+	LinkedListNode headerNode; // 멤버변수-
+}LinkedList;
+
+
+getLinkedListData // 데이터 가져 오기
+
+
+
+
+
+
+
+int getLinkedListData(LinkedList *pList, int position) { // position은 index를 나타냄
+	int i = 0;
+	LinkedListNode *pCurrentNode = &(pList->headerNode); // 헤더노드의 주소를 가져옴 
+	// 즉 pCurrentNode가 headerNode가 된다. 기준점이 headerNode인데 headerNode의 
+	// 주소를 pCurrentNode에 넘겨준다.
+	for(i=0; i<= position; i++)
+	{
+		pCurrentNode = pCurrentNode->pLink; // 데이터가 추가 됐다는 것 						currentNode가 currentNode를 가리킴
+	}
+	current pCurrentNode -> data;
+	# 이 부분을 보면 position의 값이 없어서 제대로 돌아가지 않음. position 값은 어디에도 없음
+}
+
+
+
+
+add 는 노드의 개수 증가
+
+remove는 노드의 개수 감소
+
+
+
+
+
+
+
+
+
+
+
+
+
+
