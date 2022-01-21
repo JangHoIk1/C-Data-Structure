@@ -11,7 +11,7 @@
 //{
 //	struct list a = { 10,0 }, b = { 20,0 }, c = { 30,0 };
 //
-//	struct list* head = &a, * current; // 이부분 헷갈림 current가 머임?
+//	struct list* head = &a, * current; // 이부분 헷갈림 current가 머임? => struct list* head = &a, struct list* current
 //
 //
 //	a.next = &b;
