@@ -1,0 +1,65 @@
+연결 리스트 노드(데이터)를 삽입하는 방법
+순서
+
+1. 노드 준비
+struct LinkedListNodeType{
+	int data;
+	LinkedListNodeType *pLink;
+};
+
+주소를 받아 오는 함수 를 : getNode()로 지정
+
+이 getNode 값(주소) 를 pLink한테 주면 됨
+
+new <- getNode() // 이건 프로그래밍 아니고 예시를 든거임
+
+그리고 주소를 넘겨줬으니 데이터 값을 넣어준다 -> 어디에? new.data <- x에
+
+그리고 링크를 해준다 new.Link <- List 형식
+
+이런식의 형태가 되게 된다
+ㄴ typedef struct ListNode {
+	char data[4];
+	struct ListNode *Link;
+}ListNode;
+
+type struct {
+	ListNode *head;
+} LinkedList_h;
+
+그리고 
+
+
+
+
+
+2. 새 노드의 데이터 필드에 값 저장
+3. 새 노드에 값 저장
+4. 리스트의 앞 노드에 새 노드를 연결
+
+
+x : 데이터 필드값
+L : 리스트
+inserFirstNode(L, x) // x는 데이터
+1. new <- getNode(); 집어넣을 노드에 대한 메모리 할당받아서 (get(Node())), 포인터 설정
+2. new.data <- x
+3. new.Link <- List형식
+4. L <- new;
+
+
+
+
+
+
+연결 리스트 노드(데이터)를 삭제하는 방법
+순서
+
+1. 삭제할 노드의 앞 노드를 찾는다.
+2. 앞 노드에 삭제할 링크 필드값을 저장한다.
+3. 삭제한 노드의 앞 노드와 삭제한 노드의 다음 노드 연결
+
+
+삽입할때는 앞노드가 >> 이쪽에 있는 건데
+
+
+삭제는 앞노드가 << 이거임 <<이쪽 노드가 필요함
