@@ -1,0 +1,79 @@
+queue
+인큐(enqueue) : 데이터를 넣는 연산
+디큐(dequeue) : 데이터를 꺼내는 연산
+
+1. void QueueInit(Queue * pq);
+	: 큐의 초기화
+	: 생성 한 후 제일 호출되는(하여야 하는) 함수
+
+2. int QIsEmpty(Queue * pq);
+	: 큐가 빈 경우에는 TRUE(1), 비어있지 않으면 FALSE(0)을 반환
+
+3. void Enqueue(Queue *pq, Data data);
+	: 큐에 데이터 저장 . 매개 변수 data로 전달된 값을 저장
+
+4. Data Dequeue(Queue *pq, Data data);
+	: 저장된 순서 가장 앞선 데이터 삭제
+	: 이 함수를 호출 하기 위해서는 데이터가 하나 이상 존재디큐한다는 것은 최소 데이터가 한개 존재하는 것!
+
+Queue : 배열 기반의 큐는 거의 99.9% 원형 큐
+
+CircularQueue
+int NextPosIndex(int pos) { // 큐의 다음 위치에 해당하는 인덱스 값을 반환
+	if(pos == QUE_LEN - 1)
+		return 0;
+	else
+		return pos + 1;
+}
+
+-----------여기까지 Queue의 원형 큐
+
+
+연결 리스트 기반의 큐
+void QueueInit(Queue * pq) {
+	pq->front = NULL; // F
+	pq ->rear = NULL; // R
+}
+
+연결 리스트 큐에서는
+	큐가 비어있다. F에 NULL 값 저장 // 연결 리스트 큐에서 큐가 비어있다 는 것은 값이 들어와있지 않은 것이고 rear 값을 신경쓰지 않아도 된다
+       --> rear를 제외한 front만 참조하여서 큐가 비어있는지 판단하면
+	큐가 비게 되는 경우에도 front만 참조하면 편리하다.	
+	ㄴint QIsEmpty(Queue *pq){
+		if(pq->front == NULL) // F에 NULL이 저장되어있다
+			return TRUE; // 큐가 비어있다 
+		else
+			return FALSE; // 큐가 비어있지 않다.
+
+	void Enqueue(Queue *pq, Data data){
+		Node *newNode = (Node*)malloc(sizeof(Node));
+		newNode->next = NULL;
+		newNode->data = data;
+		
+		if(QIsEmpty(pq)) {
+			pq->front = newNode; // front가 새 노드를 가리킨다.
+			pq->rear = newNode; // rear가 새 노드를 가리킨다.			
+		}
+		else {
+			pq->rear->next = newNode; // 마지막 노드가 새 노드를 가리키게 한다.
+			pq->rear = newNode; // rear가 새 노드를 가리키게 한다.
+
+	dequeue : front가 다음노드를 가리키게 하고
+		 front가 이전에 가리키던 노드를 소멸 시킨다.
+
+	Data Dequeue(Queue * pq) {
+	Node * delNode;
+	Data retData;
+	if(QIsEmpty(pq)) {
+		printf("memory error");
+		exit(-1);
+	}
+	delNode = pq->front; // 삭제할 노드의 주소값 저장
+	retData = delNode -> data; // 삭제할 노드가 지닌 값
+	pq->front = pq->front->next; // 삭제할 노드의 다음 노드를 front가 가리킴
+	
+	free(delNode);
+	return retData;
+	}
+
+
